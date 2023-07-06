@@ -1,0 +1,2376 @@
+{
+  "templateId" : "imip-uti-tx.v0",
+  "semVer" : "14.0.0",
+  "version" : "2.3",
+  "defaultLanguage" : "en",
+  "languages" : [ "en" ],
+  "tree" : {
+    "id" : "imip-uti-tx.v0",
+    "name" : "imip-uti-tx.v0",
+    "localizedName" : "imip-uti-tx.v0",
+    "rmType" : "COMPOSITION",
+    "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
+    "min" : 1,
+    "max" : 1,
+    "localizedNames" : {
+      "en" : "imip-uti-tx.v0"
+    },
+    "localizedDescriptions" : {
+      "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
+    },
+    "aqlPath" : "",
+    "children" : [ {
+      "id" : "context",
+      "rmType" : "EVENT_CONTEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "annotations" : {
+        "view:VisibleInView" : "ICU Round"
+      },
+      "aqlPath" : "/context",
+      "children" : [ {
+        "id" : "document_entry_metadata",
+        "name" : "Document Entry Metadata",
+        "localizedName" : "Document Entry Metadata",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.document_entry_metadata.v0",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Document Entry Metadata"
+        },
+        "localizedDescriptions" : {
+          "en" : "Metadata associated with the documents within the XDM message (XDSDocumentEntry) as defined in the NEHTA CDA Packaging Specification."
+        },
+        "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]",
+        "children" : [ {
+          "id" : "document_creation_time",
+          "name" : "Document Creation Time",
+          "localizedName" : "Document Creation Time",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Document Creation Time"
+          },
+          "localizedDescriptions" : {
+            "en" : "Date and/or Time the document was created in the system of origin."
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0001]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "encounter_id",
+          "name" : "Encounter ID",
+          "localizedName" : "Encounter ID",
+          "rmType" : "ELEMENT",
+          "nodeId" : "at0003",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Encounter ID"
+          },
+          "localizedDescriptions" : {
+            "en" : "Unique ID for this event from the CIS (note, source of info is the SEHR)."
+          },
+          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0003]",
+          "children" : [ {
+            "id" : "text_value",
+            "localizedName" : "Encounter ID",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Encounter ID"
+            },
+            "localizedDescriptions" : {
+              "en" : "Unique ID for this event from the CIS (note, source of info is the SEHR)."
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0003]/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "list" : [ {
+                "value" : "Vanessa",
+                "label" : "Vanessa"
+              }, {
+                "value" : "Zito",
+                "label" : "Zito"
+              }, {
+                "value" : "Artur",
+                "label" : "Artur"
+              }, {
+                "value" : "Daniel",
+                "label" : "Daniel"
+              } ],
+              "listOpen" : true
+            } ]
+          }, {
+            "id" : "identifier_value",
+            "localizedName" : "Encounter ID",
+            "rmType" : "DV_IDENTIFIER",
+            "nodeId" : "",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Encounter ID"
+            },
+            "localizedDescriptions" : {
+              "en" : "Unique ID for this event from the CIS (note, source of info is the SEHR)."
+            },
+            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0003]/value",
+            "inputs" : [ {
+              "suffix" : "id",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "type",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "issuer",
+              "type" : "TEXT"
+            }, {
+              "suffix" : "assigner",
+              "type" : "TEXT"
+            } ]
+          } ]
+        } ]
+      }, {
+        "id" : "start_time",
+        "name" : "Start_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/start_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "setting",
+        "name" : "Setting",
+        "rmType" : "DV_CODED_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/context/setting",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "value",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "adverse_reaction_risk",
+      "name" : "Adverse reaction risk",
+      "localizedName" : "Adverse reaction risk",
+      "rmType" : "EVALUATION",
+      "nodeId" : "openEHR-EHR-EVALUATION.adverse_reaction_risk.v1",
+      "min" : 0,
+      "max" : -1,
+      "localizedNames" : {
+        "en" : "Adverse reaction risk"
+      },
+      "localizedDescriptions" : {
+        "en" : "Risk of harmful or undesirable physiological response which is unique to an individual and associated with exposure to a substance."
+      },
+      "annotations" : {
+        "comment" : "Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.",
+        "source" : "openEHR,FHIR"
+      },
+      "aqlPath" : "/content[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]",
+      "children" : [ {
+        "id" : "substance",
+        "name" : "Substance",
+        "localizedName" : "Substance",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Substance"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification of a substance, or substance class, that is considered to put the individual at risk of an adverse reaction event."
+        },
+        "annotations" : {
+          "comment" : "Both an individual substance and a substance class are valid entries in 'Substance'. A substance may be a compound of simpler substances, for example a medicinal product. If the value in 'Substance' is an individual substance, it may be duplicated in 'Specific substance'. It is strongly recommended that both 'Substance' and 'Specific substance' be coded with a terminology capable of triggering decision support, where possible. For example: Snomed CT, DM+D, RxNorm, NDFRT, ATC, New Zealand Universal List of Medicines and Australian Medicines Terminology. Free text entry should only be used if there is no appropriate terminology available.",
+          "source" : "openEHR,FHIR,DAM"
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]/data[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.adverse_reaction_risk.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "body_weight",
+      "name" : "Body weight",
+      "localizedName" : "Body weight",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.body_weight.v2",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Body weight"
+      },
+      "localizedDescriptions" : {
+        "en" : "Measurement of the body weight of an individual."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_weight.v2]",
+      "children" : [ {
+        "id" : "weight",
+        "name" : "Weight",
+        "localizedName" : "Weight",
+        "rmType" : "DV_QUANTITY",
+        "nodeId" : "at0004",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Weight"
+        },
+        "localizedDescriptions" : {
+          "en" : "The weight of the individual."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_weight.v2]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value",
+        "inputs" : [ {
+          "suffix" : "magnitude",
+          "type" : "DECIMAL",
+          "validation" : {
+            "range" : {
+              "minOp" : ">=",
+              "min" : 0.0,
+              "maxOp" : "<=",
+              "max" : 1000.0
+            }
+          },
+          "defaultValue" : 0.0
+        }, {
+          "suffix" : "unit",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "kg",
+            "label" : "kg",
+            "localizedLabels" : {
+              "en" : "kg"
+            },
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0.0,
+                "maxOp" : "<=",
+                "max" : 1000.0
+              }
+            }
+          } ],
+          "defaultValue" : "kg"
+        } ],
+        "termBindings" : {
+          "LOINC" : {
+            "value" : "[LOINC::29463-7]",
+            "terminologyId" : "LOINC"
+          }
+        }
+      }, {
+        "id" : "time",
+        "name" : "Time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_weight.v2]/data[at0002]/events[at0003]/time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_weight.v2]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_weight.v2]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_weight.v2]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "problem_diagnosis",
+      "name" : "Problem/Diagnosis",
+      "localizedName" : "Problem/Diagnosis",
+      "rmType" : "EVALUATION",
+      "nodeId" : "openEHR-EHR-EVALUATION.problem_diagnosis.v1",
+      "min" : 0,
+      "max" : -1,
+      "localizedNames" : {
+        "en" : "Problem/Diagnosis"
+      },
+      "localizedDescriptions" : {
+        "en" : "Details about a single identified health condition, injury, disability or any other issue which impacts on the physical, mental and/or social well-being of an individual."
+      },
+      "annotations" : {
+        "comment" : "Clear delineation between the scope of a problem versus a diagnosis is not easy to achieve in practice. For the purposes of clinical documentation with this archetype, problem and diagnosis are regarded as a continuum, with increasing levels of detail and supportive evidence usually providing weight towards the label of 'diagnosis'."
+      },
+      "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]",
+      "children" : [ {
+        "id" : "problem_diagnosis_name",
+        "name" : "Problem/Diagnosis name",
+        "localizedName" : "Problem/Diagnosis name",
+        "rmType" : "DV_TEXT",
+        "nodeId" : "at0002",
+        "min" : 1,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Problem/Diagnosis name"
+        },
+        "localizedDescriptions" : {
+          "en" : "Identification of the problem or diagnosis, by name."
+        },
+        "annotations" : {
+          "comment" : "Coding of the name of the problem or diagnosis with a terminology is preferred, where possible."
+        },
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/data[at0001]/items[at0002]/value",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-EVALUATION.problem_diagnosis.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "physical_examination_findings",
+      "name" : "Physical examination findings",
+      "localizedName" : "Physical examination findings",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.exam.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Physical examination findings"
+      },
+      "localizedDescriptions" : {
+        "en" : "Findings observed during the physical examination of a subject of care."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "medical_device",
+          "name" : "Medical device",
+          "localizedName" : "Medical device",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.device.v1",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Medical device"
+          },
+          "localizedDescriptions" : {
+            "en" : "An instrument, apparatus, implant, material or similar, used in the provision of healthcare. In this context, a medical device includes a broad range of devices which act through a variety of physical, mechanical, thermal or similar means but specifically excludes devices which act through medicinal means such as pharmacological, metabolic or immunological methods.  The scope is inclusive of disposable devices as well as durable or persisting devices that require tracking, maintenance activities or regular calibration, recognising that each type of device has specific data recording requirements."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.device.v1]",
+          "children" : [ {
+            "id" : "device_name",
+            "name" : "Device name",
+            "localizedName" : "Device name",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0001",
+            "min" : 1,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Device name"
+            },
+            "localizedDescriptions" : {
+              "en" : "Identification of the medical device, preferably by a common name, a formal fully descriptive name or, if required, by class or category of device."
+            },
+            "annotations" : {
+              "comment" : "This data element will capture the term, phrase or category used in clinical practice. For example: <brand name><machine> (XYZ Audiometer); <size> <brand name> <intravenous catheter> (14G Jelco IV catheter); or <brand name/type> <implant>. Coding with a terminology is desirable, where possible, although this may be local and depending on local supplies available.\r\n"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.device.v1]/items[at0001]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "date_of_insertion",
+            "name" : "Date of insertion",
+            "localizedName" : "Date of insertion",
+            "rmType" : "DV_TIME",
+            "nodeId" : "at0028",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Date of insertion"
+            },
+            "localizedDescriptions" : {
+              "en" : ""
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.device.v1]/items[at0028]/value",
+            "inputs" : [ {
+              "type" : "TIME"
+            } ]
+          }, {
+            "id" : "anatomical_location",
+            "name" : "Anatomical location",
+            "localizedName" : "Anatomical location",
+            "rmType" : "CLUSTER",
+            "nodeId" : "openEHR-EHR-CLUSTER.anatomical_location.v1",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Anatomical location"
+            },
+            "localizedDescriptions" : {
+              "en" : "A physical site on or within the human body."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.device.v1]/items[openEHR-EHR-CLUSTER.anatomical_location.v1]",
+            "children" : [ {
+              "id" : "body_site_name",
+              "name" : "Body site name",
+              "localizedName" : "Body site name",
+              "rmType" : "DV_TEXT",
+              "nodeId" : "at0001",
+              "min" : 1,
+              "max" : 1,
+              "localizedNames" : {
+                "en" : "Body site name"
+              },
+              "localizedDescriptions" : {
+                "en" : "Identification of a single physical site either on, or within, the human body."
+              },
+              "annotations" : {
+                "comment" : "This data element is the only mandated data point in this archetype and should be used as the primary data point to record an anatomical location with a commonly used name. It is strongly recommended that 'Body site name' be recorded as specifically as is anatomically possible. For example: record 'upper eyelid' rather than recording 'eyelid' with 'upper' as a qualifier; 'fifth rib' rather than 'rib' with a numeric qualifier. Use the other data elements for laterality, aspect, region and anatomical line to provide more detail.\r\n\r\nThis data element should be coded with a terminology capable of triggering decision support, where possible - an appropriate termset for use here could comprise individual concepts or a list of precoordinated terms. Free text should be used only if there is no appropriate terminology available.\r\n\r\nIf body site name is already identified in the parent archetype, then this data element may be redundant. Alternatively, a use case has been identified where the value may be duplicated into this element to support semantic querying using this archetype, rather than the data element within the parent."
+              },
+              "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.device.v1]/items[openEHR-EHR-CLUSTER.anatomical_location.v1]/items[at0001]/value",
+              "inputs" : [ {
+                "type" : "TEXT"
+              } ]
+            } ]
+          } ]
+        }, {
+          "id" : "continuous_infusion_medications",
+          "name" : "Continuous infusion medications",
+          "localizedName" : "Continuous infusion medications",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.medication.v1",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Continuous infusion medications"
+          },
+          "localizedDescriptions" : {
+            "en" : "Details about a medication or component of a medication, including strength, form and details of any specific constituents."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.medication.v1,'Continuous infusion medications']",
+          "children" : [ {
+            "id" : "name",
+            "name" : "Name",
+            "localizedName" : "Name",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0132",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Name"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the medication or medication component."
+            },
+            "annotations" : {
+              "comment" : "For example: 'Zinacef 750 mg powder' or 'cefuroxim'. This item should be coded if possible, using for example, RxNorm, DM+D, Australian Medicines Terminology or FEST. Usage of this element will vary according to context of use. This element may be omitted where the name of the medication is recorded in the parent INSTRUCTION or ACTION archetype, and this archetype is only used to record that the form must be or was 'liquid'."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.medication.v1,'Continuous infusion medications']/items[at0132]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "amount",
+            "name" : "Amount",
+            "localizedName" : "Amount",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0139",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Amount"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the amount of medication or medication component."
+            },
+            "annotations" : {
+              "comment" : "For example: '1', '1.5', '1000'. \r\nNote: the associated unit for this amount is recorded using the 'Amount unit' element."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.medication.v1,'Continuous infusion medications']/items[at0139]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 3,
+                  "maxOp" : "<=",
+                  "max" : 3
+                }
+              }
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT",
+              "list" : [ {
+                "value" : "1",
+                "label" : "1",
+                "localizedLabels" : {
+                  "en" : "Infusion rate"
+                },
+                "validation" : {
+                  "range" : {
+                    "minOp" : ">=",
+                    "min" : 0.0
+                  },
+                  "precision" : {
+                    "minOp" : ">=",
+                    "min" : 3,
+                    "maxOp" : "<=",
+                    "max" : 3
+                  }
+                }
+              } ]
+            } ]
+          }, {
+            "id" : "amount_unit",
+            "name" : "Amount unit",
+            "localizedName" : "Amount unit",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0008",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Amount unit"
+            },
+            "localizedDescriptions" : {
+              "en" : "The unit of the amount of medication or medication component."
+            },
+            "annotations" : {
+              "comment" : "For example: 'mg', 'ml', 'IU'.\r\nNote: The value of the amount is recorded using the 'Amount' element."
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.medication.v1,'Continuous infusion medications']/items[at0008]/value",
+            "inputs" : [ {
+              "type" : "TEXT",
+              "list" : [ {
+                "value" : "g/dia",
+                "label" : "g/dia"
+              }, {
+                "value" : "mg/kg/dia",
+                "label" : "mg/kg/dia"
+              }, {
+                "value" : "mL/h",
+                "label" : "mL/h"
+              } ],
+              "listOpen" : false
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "estimated_glomerular_filtration_rate_egfr",
+      "name" : "Estimated glomerular filtration rate (eGFR)",
+      "localizedName" : "Estimated glomerular filtration rate (eGFR)",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Estimated glomerular filtration rate (eGFR)"
+      },
+      "localizedDescriptions" : {
+        "en" : "Calculated estimate of glomerular filtration rate as an indicator of renal function."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Any timed recording of Body Mass Index."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "relative_egfr",
+          "name" : "Relative eGFR",
+          "localizedName" : "Relative eGFR",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0004",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Relative eGFR"
+          },
+          "localizedDescriptions" : {
+            "en" : "Estimation of glomerular filtration rate normalised to a body surface area of 1.73m² (mL/min/1.73m²)."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL"
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "mL/min/{1.73_m2}",
+              "label" : "mL/min/{1.73_m2}",
+              "localizedLabels" : {
+                "en" : "mL/min/{1.73_m2}"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "absolute_egfr",
+          "name" : "Absolute eGFR",
+          "localizedName" : "Absolute eGFR",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0020",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Absolute eGFR"
+          },
+          "localizedDescriptions" : {
+            "en" : "Estimation of glomerular filtration rate calculated using the relative eGFR, weight and height."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0020]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL"
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "ml/min",
+              "label" : "ml/min",
+              "localizedLabels" : {
+                "en" : "ml/min"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "formula",
+        "name" : "Formula",
+        "localizedName" : "Formula",
+        "rmType" : "DV_CODED_TEXT",
+        "nodeId" : "at0010",
+        "min" : 0,
+        "max" : 1,
+        "dependsOn" : [ "any_event" ],
+        "localizedNames" : {
+          "en" : "Formula"
+        },
+        "localizedDescriptions" : {
+          "en" : "Formula used to calculate the Estimated Glomerular Filtration Rate."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[at0010]/value",
+        "inputs" : [ {
+          "suffix" : "code",
+          "type" : "CODED_TEXT",
+          "list" : [ {
+            "value" : "at0013",
+            "label" : "MDRD formula - non-IDMS-normalized serum Cr",
+            "localizedLabels" : {
+              "en" : "MDRD formula - non-IDMS-normalized serum Cr"
+            },
+            "localizedDescriptions" : {
+              "en" : "Modification of Diet in Renal Disease study formula using standard creatinine measurement."
+            }
+          }, {
+            "value" : "at0014",
+            "label" : "MDRD formula - IDMS-normalized serum Cr",
+            "localizedLabels" : {
+              "en" : "MDRD formula - IDMS-normalized serum Cr"
+            },
+            "localizedDescriptions" : {
+              "en" : "Modification of Diet in Renal Disease study formula using creatinine measured by an IDMS-calibrated assay."
+            }
+          }, {
+            "value" : "at0015",
+            "label" : "CKD-EPI Creatinine",
+            "localizedLabels" : {
+              "en" : "CKD-EPI Creatinine"
+            },
+            "localizedDescriptions" : {
+              "en" : "Chronic Kidney Disease Epidemiology Collaboration formula using creatinine."
+            }
+          }, {
+            "value" : "at0017",
+            "label" : "Bedside Schwartz equation",
+            "localizedLabels" : {
+              "en" : "Bedside Schwartz equation"
+            },
+            "localizedDescriptions" : {
+              "en" : "Bedside IDMS-traceable Schwartz GFR Calculator for Children."
+            }
+          }, {
+            "value" : "at0016",
+            "label" : "Cockcroft-Gault formula",
+            "localizedLabels" : {
+              "en" : "Cockcroft-Gault formula"
+            },
+            "localizedDescriptions" : {
+              "en" : "Estimated creatinine clearance rate (eCCr) using Cockcroft-Gault formula."
+            }
+          }, {
+            "value" : "at0021",
+            "label" : "LM Revised",
+            "localizedLabels" : {
+              "en" : "LM Revised"
+            },
+            "localizedDescriptions" : {
+              "en" : "Revised Lund-Malmö Study equation."
+            }
+          }, {
+            "value" : "at0025",
+            "label" : "CKD-EPI Cystatin C",
+            "localizedLabels" : {
+              "en" : "CKD-EPI Cystatin C"
+            },
+            "localizedDescriptions" : {
+              "en" : "Chronic Kidney Disease Epidemiology Collaboration formula using cystatin C."
+            }
+          }, {
+            "value" : "at0026",
+            "label" : "CKD-EPI Creatinine-Cystatin C",
+            "localizedLabels" : {
+              "en" : "CKD-EPI Creatinine-Cystatin C"
+            },
+            "localizedDescriptions" : {
+              "en" : "Chronic Kidney Disease Epidemiology Collaboration formula using creatinine and cystatin C."
+            }
+          } ],
+          "defaultValue" : "at0015"
+        } ]
+      }, {
+        "id" : "laboratory_analyte_result",
+        "name" : "Laboratory analyte result",
+        "localizedName" : "Laboratory analyte result",
+        "rmType" : "CLUSTER",
+        "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+        "min" : 0,
+        "max" : -1,
+        "dependsOn" : [ "any_event" ],
+        "localizedNames" : {
+          "en" : "Laboratory analyte result"
+        },
+        "localizedDescriptions" : {
+          "en" : "The result of a laboratory test for a single analyte value."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]",
+        "children" : [ {
+          "id" : "analyte_name",
+          "name" : "Analyte name",
+          "localizedName" : "Analyte name",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0024",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Analyte name"
+          },
+          "localizedDescriptions" : {
+            "en" : "The name of the analyte result."
+          },
+          "annotations" : {
+            "comment" : "The value for this element is normally supplied in a specialisation, in a template or at run-time to reflect the actual analyte. For example: 'Serum sodium', 'Haemoglobin'. Coding with an external terminology is strongly recommended, such as LOINC, NPU, SNOMED CT, or local lab terminologies.",
+            "hl7v2_mapping" : "OBX.3",
+            "fhir_mapping" : "Observation.code"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0024]/value",
+          "inputs" : [ {
+            "type" : "TEXT",
+            "defaultValue" : "Serum creatinine"
+          } ]
+        }, {
+          "id" : "analyte_result",
+          "name" : "Analyte result",
+          "localizedName" : "Analyte result",
+          "rmType" : "DV_ORDINAL",
+          "nodeId" : "at0001",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Analyte result"
+          },
+          "localizedDescriptions" : {
+            "en" : "The value of the analyte result."
+          },
+          "annotations" : {
+            "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+            "fhir_mapping" : "Observation.value[x]"
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001]/value",
+          "inputs" : [ {
+            "type" : "CODED_TEXT"
+          } ]
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "medication_statement",
+      "name" : "Medication statement",
+      "localizedName" : "Medication statement",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.medication_statement.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Medication statement"
+      },
+      "localizedDescriptions" : {
+        "en" : "A snapshot view about the use of a specified medication."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "medication_item_name",
+          "name" : "Medication item name",
+          "localizedName" : "Medication item name",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0006",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Medication item name"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the medication, vaccine or other therapeutic/prescribable item."
+          },
+          "annotations" : {
+            "comment" : "It is strongly recommended that the 'Medication item' be coded with a terminology capable of triggering decision support, where possible. The extent of coding may vary from the simple generic or product name of the medication item through to structured details about the actual medication pack to be used. Free text entry should only be used if there is no appropriate terminology available."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "first_prescribed",
+          "name" : "First prescribed",
+          "localizedName" : "First prescribed",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0024",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "First prescribed"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date/time when a prescription for the medication was first issued."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0024]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "discontinued",
+          "name" : "Discontinued",
+          "localizedName" : "Discontinued",
+          "rmType" : "DV_DATE_TIME",
+          "nodeId" : "at0028",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Discontinued"
+          },
+          "localizedDescriptions" : {
+            "en" : "The date/time when use of the medication was ceased."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0028]/value",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.medication_statement.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "fluid_balance",
+      "name" : "Fluid balance",
+      "localizedName" : "Fluid balance",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.fluid_balance.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Fluid balance"
+      },
+      "localizedDescriptions" : {
+        "en" : "The difference between fluid input and output during a specified interval of time."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]",
+      "children" : [ {
+        "id" : "any_interval_event",
+        "name" : "Any interval event",
+        "localizedName" : "Any interval event",
+        "rmType" : "INTERVAL_EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any interval event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Unspecified interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "fluid_balance",
+          "name" : "Fluid balance",
+          "localizedName" : "Fluid balance",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0007",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Fluid balance"
+          },
+          "localizedDescriptions" : {
+            "en" : "The difference between fluid input and output during a specified interval of time."
+          },
+          "annotations" : {
+            "comment" : "Fluid Balance = Total Fluid Input - (Total Fluid Output + Insensible Loss)."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0007]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL"
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "ml",
+              "label" : "ml",
+              "localizedLabels" : {
+                "en" : "ml"
+              }
+            }, {
+              "value" : "l",
+              "label" : "l",
+              "validation" : {
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 3,
+                  "maxOp" : "<=",
+                  "max" : 3
+                }
+              }
+            }, {
+              "value" : "[foz_us]",
+              "label" : "[foz_us]",
+              "localizedLabels" : {
+                "en" : "fl oz (US)"
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "width",
+          "rmType" : "DV_DURATION",
+          "nodeId" : "",
+          "min" : 0,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/data[at0001]/events[at0002]/width",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "week",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "hour",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 12,
+                "maxOp" : "<=",
+                "max" : 12
+              }
+            }
+          }, {
+            "suffix" : "minute",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "second",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "math_function",
+          "name" : "Math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/data[at0001]/events[at0002]/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "fluid_output",
+      "name" : "Fluid output",
+      "localizedName" : "Fluid output",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.fluid_output.v1",
+      "min" : 0,
+      "max" : -1,
+      "localizedNames" : {
+        "en" : "Fluid output"
+      },
+      "localizedDescriptions" : {
+        "en" : "The measurement of fluid lost or excreted from the body via any mechanism."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "INTERVAL_EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "fluid_name",
+          "name" : "Fluid name",
+          "localizedName" : "Fluid name",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0036",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Fluid name"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the fluid lost or excreted."
+          },
+          "annotations" : {
+            "comment" : "For example: urine or vomit. Coding of fluid name with a terminology is preferred, if possible."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0036]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "volume",
+          "name" : "Volume",
+          "localizedName" : "Volume",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0035",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Volume"
+          },
+          "localizedDescriptions" : {
+            "en" : "The volume of fluid."
+          },
+          "annotations" : {
+            "comment" : "If absorbant material, such as diapers and dressings, are weighed as part of managing fluid loss estimates, the weight will need to be converted to a volume for recording."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0035]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL"
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "ml",
+              "label" : "ml",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                }
+              }
+            }, {
+              "value" : "l",
+              "label" : "l",
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 3,
+                  "maxOp" : "<=",
+                  "max" : 3
+                }
+              }
+            }, {
+              "value" : "[foz_us]",
+              "label" : "[foz_us]",
+              "localizedLabels" : {
+                "en" : "fl oz (US)"
+              },
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0
+                }
+              }
+            } ]
+          } ]
+        }, {
+          "id" : "width",
+          "name" : "Width",
+          "rmType" : "DV_DURATION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/data[at0001]/events[at0002]/width",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "week",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "hour",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "minute",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "second",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "math_function",
+          "name" : "Math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/data[at0001]/events[at0002]/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_output.v1]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "body_temperature",
+      "name" : "Body temperature",
+      "localizedName" : "Body temperature",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.body_temperature.v2",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Body temperature"
+      },
+      "localizedDescriptions" : {
+        "en" : "A measurement of the body temperature, which is a surrogate for the core body temperature of the individual."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "INTERVAL_EVENT",
+        "nodeId" : "at0003",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]",
+        "children" : [ {
+          "id" : "temperature",
+          "name" : "Temperature",
+          "localizedName" : "Temperature",
+          "rmType" : "DV_QUANTITY",
+          "nodeId" : "at0004",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Temperature"
+          },
+          "localizedDescriptions" : {
+            "en" : "The measured temperature."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value",
+          "inputs" : [ {
+            "suffix" : "magnitude",
+            "type" : "DECIMAL",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0.0,
+                "maxOp" : "<",
+                "max" : 100.0
+              },
+              "precision" : {
+                "minOp" : ">=",
+                "min" : 1,
+                "maxOp" : "<=",
+                "max" : 1
+              }
+            }
+          }, {
+            "suffix" : "unit",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "Cel",
+              "label" : "Cel",
+              "localizedLabels" : {
+                "en" : "°C"
+              },
+              "validation" : {
+                "range" : {
+                  "minOp" : ">=",
+                  "min" : 0.0,
+                  "maxOp" : "<",
+                  "max" : 100.0
+                },
+                "precision" : {
+                  "minOp" : ">=",
+                  "min" : 1,
+                  "maxOp" : "<=",
+                  "max" : 1
+                }
+              }
+            } ]
+          } ],
+          "termBindings" : {
+            "LNC205" : {
+              "value" : "[LNC205::8310-5]",
+              "terminologyId" : "LNC205"
+            },
+            "SNOMED-CT" : {
+              "value" : "[SNOMED-CT::386725007]",
+              "terminologyId" : "SNOMED-CT"
+            }
+          }
+        }, {
+          "id" : "math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "nodeId" : "",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "CODED_TEXT",
+            "list" : [ {
+              "value" : "144",
+              "label" : "maximum",
+              "localizedLabels" : {
+                "en" : "maximum"
+              }
+            } ],
+            "terminology" : "openehr"
+          } ]
+        }, {
+          "id" : "width",
+          "rmType" : "DV_DURATION",
+          "nodeId" : "",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/width",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "week",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "hour",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 24,
+                "maxOp" : "<=",
+                "max" : 24
+              }
+            }
+          }, {
+            "suffix" : "minute",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "second",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "faecal_output",
+      "name" : "Faecal output",
+      "localizedName" : "Faecal output",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.faecal_output.v0",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Faecal output"
+      },
+      "localizedDescriptions" : {
+        "en" : "The measurement of faeces excreted from the body."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "INTERVAL_EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "comment",
+          "name" : "Comment",
+          "localizedName" : "Comment",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0006",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Comment"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional narrative about the faecal output not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "width",
+          "name" : "Width",
+          "rmType" : "DV_DURATION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/data[at0001]/events[at0002]/width",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "week",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "hour",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "minute",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "second",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "math_function",
+          "name" : "Math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/data[at0001]/events[at0002]/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "glicemia",
+      "name" : "Glicemia",
+      "localizedName" : "Glicemia",
+      "rmType" : "OBSERVATION",
+      "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
+      "min" : 0,
+      "max" : 1,
+      "localizedNames" : {
+        "en" : "Glicemia"
+      },
+      "localizedDescriptions" : {
+        "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
+      },
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']",
+      "children" : [ {
+        "id" : "any_event",
+        "name" : "Any event",
+        "localizedName" : "Any event",
+        "rmType" : "EVENT",
+        "nodeId" : "at0002",
+        "min" : 0,
+        "max" : -1,
+        "localizedNames" : {
+          "en" : "Any event"
+        },
+        "localizedDescriptions" : {
+          "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
+        },
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]",
+        "children" : [ {
+          "id" : "test_name",
+          "name" : "Test name",
+          "localizedName" : "Test name",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0005",
+          "min" : 1,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Test name"
+          },
+          "localizedDescriptions" : {
+            "en" : "Name of the laboratory investigation performed on the specimen(s)."
+          },
+          "annotations" : {
+            "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
+          "inputs" : [ {
+            "type" : "TEXT",
+            "defaultValue" : "Glicemia"
+          } ]
+        }, {
+          "id" : "conclusion",
+          "name" : "Conclusion",
+          "localizedName" : "Conclusion",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0057",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Conclusion"
+          },
+          "localizedDescriptions" : {
+            "en" : "Narrative description of the key findings."
+          },
+          "annotations" : {
+            "comment" : "For example: 'Pattern suggests significant renal impairment'. The content of the conclusion will vary, depending on the investigation performed. This conclusion should be aligned with the coded 'Test diagnosis'."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]/data[at0003]/items[at0057]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "time",
+          "name" : "Time",
+          "rmType" : "DV_DATE_TIME",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]/time",
+          "inputs" : [ {
+            "type" : "DATETIME"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "care_plan_request",
+      "name" : "Care plan request",
+      "localizedName" : "Care plan request",
+      "rmType" : "INSTRUCTION",
+      "nodeId" : "openEHR-EHR-INSTRUCTION.care_plan_request.v0",
+      "min" : 0,
+      "max" : -1,
+      "localizedNames" : {
+        "en" : "Care plan request"
+      },
+      "localizedDescriptions" : {
+        "en" : "Order or instruction for the creation and sequence of activities to achieve a specified management goal or treatment outcome, carried out by health professionals and/or the subject."
+      },
+      "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]",
+      "children" : [ {
+        "id" : "activity",
+        "name" : "Activity",
+        "localizedName" : "Activity",
+        "rmType" : "ACTIVITY",
+        "nodeId" : "at0001",
+        "min" : 0,
+        "max" : 1,
+        "localizedNames" : {
+          "en" : "Activity"
+        },
+        "localizedDescriptions" : {
+          "en" : "Current Activity."
+        },
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/activities[at0001]",
+        "children" : [ {
+          "id" : "action_archetype_id",
+          "rmType" : "STRING",
+          "nodeId" : "",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/activities[at0001]/action_archetype_id",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "plan_name",
+          "name" : "Plan name",
+          "localizedName" : "Plan name",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0017",
+          "min" : 0,
+          "max" : 1,
+          "localizedNames" : {
+            "en" : "Plan name"
+          },
+          "localizedDescriptions" : {
+            "en" : "Identification of the care plan."
+          },
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/activities[at0001]/description[at0004]/items[at0017]/value",
+          "inputs" : [ {
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "timing",
+          "name" : "Timing",
+          "rmType" : "DV_PARSABLE",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/activities[at0001]/timing",
+          "inputs" : [ {
+            "suffix" : "value",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "formalism",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
+        } ]
+      }, {
+        "id" : "expiry_time",
+        "name" : "expiry_time",
+        "rmType" : "DV_DATE_TIME",
+        "min" : 0,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/expiry_time",
+        "inputs" : [ {
+          "type" : "DATETIME"
+        } ]
+      }, {
+        "id" : "narrative",
+        "name" : "Narrative",
+        "rmType" : "DV_TEXT",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/narrative",
+        "inputs" : [ {
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      }, {
+        "id" : "language",
+        "name" : "Language",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/language",
+        "inContext" : true
+      }, {
+        "id" : "encoding",
+        "name" : "Encoding",
+        "rmType" : "CODE_PHRASE",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/encoding",
+        "inContext" : true
+      }, {
+        "id" : "subject",
+        "name" : "Subject",
+        "rmType" : "PARTY_PROXY",
+        "min" : 1,
+        "max" : 1,
+        "aqlPath" : "/content[openEHR-EHR-INSTRUCTION.care_plan_request.v0]/subject",
+        "inputs" : [ {
+          "suffix" : "id",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_scheme",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "id_namespace",
+          "type" : "TEXT"
+        }, {
+          "suffix" : "name",
+          "type" : "TEXT"
+        } ],
+        "inContext" : true
+      } ]
+    }, {
+      "id" : "category",
+      "rmType" : "DV_CODED_TEXT",
+      "nodeId" : "",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/category",
+      "inputs" : [ {
+        "suffix" : "code",
+        "type" : "CODED_TEXT",
+        "list" : [ {
+          "value" : "433",
+          "label" : "event",
+          "localizedLabels" : {
+            "en" : "event"
+          }
+        } ],
+        "terminology" : "openehr"
+      } ],
+      "inContext" : true
+    }, {
+      "id" : "language",
+      "name" : "Language",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/language",
+      "inContext" : true
+    }, {
+      "id" : "territory",
+      "name" : "Territory",
+      "rmType" : "CODE_PHRASE",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/territory",
+      "inContext" : true
+    }, {
+      "id" : "composer",
+      "name" : "Composer",
+      "rmType" : "PARTY_PROXY",
+      "min" : 1,
+      "max" : 1,
+      "aqlPath" : "/composer",
+      "inputs" : [ {
+        "suffix" : "id",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_scheme",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "id_namespace",
+        "type" : "TEXT"
+      }, {
+        "suffix" : "name",
+        "type" : "TEXT"
+      } ],
+      "inContext" : true
+    } ]
+  }
+}

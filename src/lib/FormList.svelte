@@ -4,6 +4,7 @@
     import BloodPressure from "./forms/BloodPressure.svelte";
     import CovidForm from "./forms/CovidForm.svelte";
     import Opd from "./forms/Opd.svelte";
+    import UTI from "./forms/UTI.svelte";
     export const forms: {
         name: string;
         id: string;
@@ -33,6 +34,12 @@
             id: 'covid.form.v1',
             component: CovidForm,
             opt: "covid.form.v1.opt"
+        },
+        {
+            name: 'UTI',
+            id: 'imip-uti-tx.v0',
+            component: UTI,
+            opt: "imip-uti-tx.v0 (3).opt"
         }
     ];
 </script>
