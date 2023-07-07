@@ -1,19 +1,19 @@
 {
-  "templateId" : "imip-uti-tx.v0",
-  "semVer" : "14.0.0",
+  "templateId" : "imip-uti-tx.v8",
+  "semVer" : "20.1.0",
   "version" : "2.3",
   "defaultLanguage" : "en",
   "languages" : [ "en" ],
   "tree" : {
-    "id" : "imip-uti-tx.v0",
-    "name" : "imip-uti-tx.v0",
-    "localizedName" : "imip-uti-tx.v0",
+    "id" : "imip-uti-tx.v8",
+    "name" : "imip-uti-tx.v8",
+    "localizedName" : "imip-uti-tx.v8",
     "rmType" : "COMPOSITION",
     "nodeId" : "openEHR-EHR-COMPOSITION.encounter.v1",
     "min" : 1,
     "max" : 1,
     "localizedNames" : {
-      "en" : "imip-uti-tx.v0"
+      "en" : "imip-uti-tx.v8"
     },
     "localizedDescriptions" : {
       "en" : "Interaction, contact or care event between a subject of care and healthcare provider(s)."
@@ -61,80 +61,6 @@
           "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0001]/value",
           "inputs" : [ {
             "type" : "DATETIME"
-          } ]
-        }, {
-          "id" : "encounter_id",
-          "name" : "Encounter ID",
-          "localizedName" : "Encounter ID",
-          "rmType" : "ELEMENT",
-          "nodeId" : "at0003",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Encounter ID"
-          },
-          "localizedDescriptions" : {
-            "en" : "Unique ID for this event from the CIS (note, source of info is the SEHR)."
-          },
-          "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0003]",
-          "children" : [ {
-            "id" : "text_value",
-            "localizedName" : "Encounter ID",
-            "rmType" : "DV_TEXT",
-            "nodeId" : "",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Encounter ID"
-            },
-            "localizedDescriptions" : {
-              "en" : "Unique ID for this event from the CIS (note, source of info is the SEHR)."
-            },
-            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0003]/value",
-            "inputs" : [ {
-              "type" : "TEXT",
-              "list" : [ {
-                "value" : "Vanessa",
-                "label" : "Vanessa"
-              }, {
-                "value" : "Zito",
-                "label" : "Zito"
-              }, {
-                "value" : "Artur",
-                "label" : "Artur"
-              }, {
-                "value" : "Daniel",
-                "label" : "Daniel"
-              } ],
-              "listOpen" : true
-            } ]
-          }, {
-            "id" : "identifier_value",
-            "localizedName" : "Encounter ID",
-            "rmType" : "DV_IDENTIFIER",
-            "nodeId" : "",
-            "min" : 0,
-            "max" : 1,
-            "localizedNames" : {
-              "en" : "Encounter ID"
-            },
-            "localizedDescriptions" : {
-              "en" : "Unique ID for this event from the CIS (note, source of info is the SEHR)."
-            },
-            "aqlPath" : "/context/other_context[at0001]/items[openEHR-EHR-CLUSTER.document_entry_metadata.v0]/items[at0003]/value",
-            "inputs" : [ {
-              "suffix" : "id",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "type",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "issuer",
-              "type" : "TEXT"
-            }, {
-              "suffix" : "assigner",
-              "type" : "TEXT"
-            } ]
           } ]
         } ]
       }, {
@@ -282,9 +208,14 @@
               "min" : 0.0,
               "maxOp" : "<=",
               "max" : 1000.0
+            },
+            "precision" : {
+              "minOp" : ">=",
+              "min" : 2,
+              "maxOp" : "<=",
+              "max" : 2
             }
-          },
-          "defaultValue" : 0.0
+          }
         }, {
           "suffix" : "unit",
           "type" : "CODED_TEXT",
@@ -300,10 +231,15 @@
                 "min" : 0.0,
                 "maxOp" : "<=",
                 "max" : 1000.0
+              },
+              "precision" : {
+                "minOp" : ">=",
+                "min" : 2,
+                "maxOp" : "<=",
+                "max" : 2
               }
             }
-          } ],
-          "defaultValue" : "kg"
+          } ]
         } ],
         "termBindings" : {
           "LOINC" : {
@@ -635,7 +571,7 @@
                 "value" : "1",
                 "label" : "1",
                 "localizedLabels" : {
-                  "en" : "Infusion rate"
+                  "en" : "1"
                 },
                 "validation" : {
                   "range" : {
@@ -719,302 +655,6 @@
         "min" : 1,
         "max" : 1,
         "aqlPath" : "/content[openEHR-EHR-OBSERVATION.exam.v1]/subject",
-        "inputs" : [ {
-          "suffix" : "id",
-          "type" : "TEXT"
-        }, {
-          "suffix" : "id_scheme",
-          "type" : "TEXT"
-        }, {
-          "suffix" : "id_namespace",
-          "type" : "TEXT"
-        }, {
-          "suffix" : "name",
-          "type" : "TEXT"
-        } ],
-        "inContext" : true
-      } ]
-    }, {
-      "id" : "estimated_glomerular_filtration_rate_egfr",
-      "name" : "Estimated glomerular filtration rate (eGFR)",
-      "localizedName" : "Estimated glomerular filtration rate (eGFR)",
-      "rmType" : "OBSERVATION",
-      "nodeId" : "openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0",
-      "min" : 0,
-      "max" : 1,
-      "localizedNames" : {
-        "en" : "Estimated glomerular filtration rate (eGFR)"
-      },
-      "localizedDescriptions" : {
-        "en" : "Calculated estimate of glomerular filtration rate as an indicator of renal function."
-      },
-      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]",
-      "children" : [ {
-        "id" : "any_event",
-        "name" : "Any event",
-        "localizedName" : "Any event",
-        "rmType" : "EVENT",
-        "nodeId" : "at0002",
-        "min" : 0,
-        "max" : -1,
-        "localizedNames" : {
-          "en" : "Any event"
-        },
-        "localizedDescriptions" : {
-          "en" : "Any timed recording of Body Mass Index."
-        },
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]",
-        "children" : [ {
-          "id" : "relative_egfr",
-          "name" : "Relative eGFR",
-          "localizedName" : "Relative eGFR",
-          "rmType" : "DV_QUANTITY",
-          "nodeId" : "at0004",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Relative eGFR"
-          },
-          "localizedDescriptions" : {
-            "en" : "Estimation of glomerular filtration rate normalised to a body surface area of 1.73m² (mL/min/1.73m²)."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",
-          "inputs" : [ {
-            "suffix" : "magnitude",
-            "type" : "DECIMAL"
-          }, {
-            "suffix" : "unit",
-            "type" : "CODED_TEXT",
-            "list" : [ {
-              "value" : "mL/min/{1.73_m2}",
-              "label" : "mL/min/{1.73_m2}",
-              "localizedLabels" : {
-                "en" : "mL/min/{1.73_m2}"
-              }
-            } ]
-          } ]
-        }, {
-          "id" : "absolute_egfr",
-          "name" : "Absolute eGFR",
-          "localizedName" : "Absolute eGFR",
-          "rmType" : "DV_QUANTITY",
-          "nodeId" : "at0020",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Absolute eGFR"
-          },
-          "localizedDescriptions" : {
-            "en" : "Estimation of glomerular filtration rate calculated using the relative eGFR, weight and height."
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0020]/value",
-          "inputs" : [ {
-            "suffix" : "magnitude",
-            "type" : "DECIMAL"
-          }, {
-            "suffix" : "unit",
-            "type" : "CODED_TEXT",
-            "list" : [ {
-              "value" : "ml/min",
-              "label" : "ml/min",
-              "localizedLabels" : {
-                "en" : "ml/min"
-              }
-            } ]
-          } ]
-        }, {
-          "id" : "time",
-          "name" : "Time",
-          "rmType" : "DV_DATE_TIME",
-          "min" : 1,
-          "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/data[at0001]/events[at0002]/time",
-          "inputs" : [ {
-            "type" : "DATETIME"
-          } ],
-          "inContext" : true
-        } ]
-      }, {
-        "id" : "formula",
-        "name" : "Formula",
-        "localizedName" : "Formula",
-        "rmType" : "DV_CODED_TEXT",
-        "nodeId" : "at0010",
-        "min" : 0,
-        "max" : 1,
-        "dependsOn" : [ "any_event" ],
-        "localizedNames" : {
-          "en" : "Formula"
-        },
-        "localizedDescriptions" : {
-          "en" : "Formula used to calculate the Estimated Glomerular Filtration Rate."
-        },
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[at0010]/value",
-        "inputs" : [ {
-          "suffix" : "code",
-          "type" : "CODED_TEXT",
-          "list" : [ {
-            "value" : "at0013",
-            "label" : "MDRD formula - non-IDMS-normalized serum Cr",
-            "localizedLabels" : {
-              "en" : "MDRD formula - non-IDMS-normalized serum Cr"
-            },
-            "localizedDescriptions" : {
-              "en" : "Modification of Diet in Renal Disease study formula using standard creatinine measurement."
-            }
-          }, {
-            "value" : "at0014",
-            "label" : "MDRD formula - IDMS-normalized serum Cr",
-            "localizedLabels" : {
-              "en" : "MDRD formula - IDMS-normalized serum Cr"
-            },
-            "localizedDescriptions" : {
-              "en" : "Modification of Diet in Renal Disease study formula using creatinine measured by an IDMS-calibrated assay."
-            }
-          }, {
-            "value" : "at0015",
-            "label" : "CKD-EPI Creatinine",
-            "localizedLabels" : {
-              "en" : "CKD-EPI Creatinine"
-            },
-            "localizedDescriptions" : {
-              "en" : "Chronic Kidney Disease Epidemiology Collaboration formula using creatinine."
-            }
-          }, {
-            "value" : "at0017",
-            "label" : "Bedside Schwartz equation",
-            "localizedLabels" : {
-              "en" : "Bedside Schwartz equation"
-            },
-            "localizedDescriptions" : {
-              "en" : "Bedside IDMS-traceable Schwartz GFR Calculator for Children."
-            }
-          }, {
-            "value" : "at0016",
-            "label" : "Cockcroft-Gault formula",
-            "localizedLabels" : {
-              "en" : "Cockcroft-Gault formula"
-            },
-            "localizedDescriptions" : {
-              "en" : "Estimated creatinine clearance rate (eCCr) using Cockcroft-Gault formula."
-            }
-          }, {
-            "value" : "at0021",
-            "label" : "LM Revised",
-            "localizedLabels" : {
-              "en" : "LM Revised"
-            },
-            "localizedDescriptions" : {
-              "en" : "Revised Lund-Malmö Study equation."
-            }
-          }, {
-            "value" : "at0025",
-            "label" : "CKD-EPI Cystatin C",
-            "localizedLabels" : {
-              "en" : "CKD-EPI Cystatin C"
-            },
-            "localizedDescriptions" : {
-              "en" : "Chronic Kidney Disease Epidemiology Collaboration formula using cystatin C."
-            }
-          }, {
-            "value" : "at0026",
-            "label" : "CKD-EPI Creatinine-Cystatin C",
-            "localizedLabels" : {
-              "en" : "CKD-EPI Creatinine-Cystatin C"
-            },
-            "localizedDescriptions" : {
-              "en" : "Chronic Kidney Disease Epidemiology Collaboration formula using creatinine and cystatin C."
-            }
-          } ],
-          "defaultValue" : "at0015"
-        } ]
-      }, {
-        "id" : "laboratory_analyte_result",
-        "name" : "Laboratory analyte result",
-        "localizedName" : "Laboratory analyte result",
-        "rmType" : "CLUSTER",
-        "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
-        "min" : 0,
-        "max" : -1,
-        "dependsOn" : [ "any_event" ],
-        "localizedNames" : {
-          "en" : "Laboratory analyte result"
-        },
-        "localizedDescriptions" : {
-          "en" : "The result of a laboratory test for a single analyte value."
-        },
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]",
-        "children" : [ {
-          "id" : "analyte_name",
-          "name" : "Analyte name",
-          "localizedName" : "Analyte name",
-          "rmType" : "DV_TEXT",
-          "nodeId" : "at0024",
-          "min" : 0,
-          "max" : 1,
-          "localizedNames" : {
-            "en" : "Analyte name"
-          },
-          "localizedDescriptions" : {
-            "en" : "The name of the analyte result."
-          },
-          "annotations" : {
-            "comment" : "The value for this element is normally supplied in a specialisation, in a template or at run-time to reflect the actual analyte. For example: 'Serum sodium', 'Haemoglobin'. Coding with an external terminology is strongly recommended, such as LOINC, NPU, SNOMED CT, or local lab terminologies.",
-            "hl7v2_mapping" : "OBX.3",
-            "fhir_mapping" : "Observation.code"
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0024]/value",
-          "inputs" : [ {
-            "type" : "TEXT",
-            "defaultValue" : "Serum creatinine"
-          } ]
-        }, {
-          "id" : "analyte_result",
-          "name" : "Analyte result",
-          "localizedName" : "Analyte result",
-          "rmType" : "DV_ORDINAL",
-          "nodeId" : "at0001",
-          "min" : 0,
-          "max" : -1,
-          "localizedNames" : {
-            "en" : "Analyte result"
-          },
-          "localizedDescriptions" : {
-            "en" : "The value of the analyte result."
-          },
-          "annotations" : {
-            "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
-            "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
-            "fhir_mapping" : "Observation.value[x]"
-          },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/protocol[at0022]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001]/value",
-          "inputs" : [ {
-            "type" : "CODED_TEXT"
-          } ]
-        } ]
-      }, {
-        "id" : "language",
-        "name" : "Language",
-        "rmType" : "CODE_PHRASE",
-        "min" : 1,
-        "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/language",
-        "inContext" : true
-      }, {
-        "id" : "encoding",
-        "name" : "Encoding",
-        "rmType" : "CODE_PHRASE",
-        "min" : 1,
-        "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/encoding",
-        "inContext" : true
-      }, {
-        "id" : "subject",
-        "name" : "Subject",
-        "rmType" : "PARTY_PROXY",
-        "min" : 1,
-        "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.estimated_glomerular_filtration_rate.v0]/subject",
         "inputs" : [ {
           "suffix" : "id",
           "type" : "TEXT"
@@ -1248,9 +888,9 @@
           } ]
         }, {
           "id" : "width",
+          "name" : "Width",
           "rmType" : "DV_DURATION",
-          "nodeId" : "",
-          "min" : 0,
+          "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-OBSERVATION.fluid_balance.v1]/data[at0001]/events[at0002]/width",
           "inputs" : [ {
@@ -1295,9 +935,7 @@
             "validation" : {
               "range" : {
                 "minOp" : ">=",
-                "min" : 12,
-                "maxOp" : "<=",
-                "max" : 12
+                "min" : 0
               }
             }
           }, {
@@ -1318,7 +956,8 @@
                 "min" : 0
               }
             }
-          } ]
+          } ],
+          "inContext" : true
         }, {
           "id" : "math_function",
           "name" : "Math_function",
@@ -1703,7 +1342,7 @@
               "value" : "Cel",
               "label" : "Cel",
               "localizedLabels" : {
-                "en" : "°C"
+                "en" : "Cel"
               },
               "validation" : {
                 "range" : {
@@ -1732,28 +1371,35 @@
             }
           }
         }, {
-          "id" : "math_function",
-          "rmType" : "DV_CODED_TEXT",
-          "nodeId" : "",
-          "min" : 1,
+          "id" : "comment",
+          "name" : "Comment",
+          "localizedName" : "Comment",
+          "rmType" : "DV_TEXT",
+          "nodeId" : "at0063",
+          "min" : 0,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/math_function",
+          "localizedNames" : {
+            "en" : "Comment"
+          },
+          "localizedDescriptions" : {
+            "en" : "Additional comment about the body temperature measurement not captured in other fields."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/data[at0001]/items[at0063]/value",
           "inputs" : [ {
-            "suffix" : "code",
-            "type" : "CODED_TEXT",
+            "type" : "TEXT",
             "list" : [ {
-              "value" : "144",
-              "label" : "maximum",
-              "localizedLabels" : {
-                "en" : "maximum"
-              }
+              "value" : "Sim",
+              "label" : "Sim"
+            }, {
+              "value" : "Não",
+              "label" : "Não"
             } ],
-            "terminology" : "openehr"
+            "listOpen" : false
           } ]
         }, {
           "id" : "width",
+          "name" : "Width",
           "rmType" : "DV_DURATION",
-          "nodeId" : "",
           "min" : 1,
           "max" : 1,
           "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/width",
@@ -1799,9 +1445,7 @@
             "validation" : {
               "range" : {
                 "minOp" : ">=",
-                "min" : 24,
-                "maxOp" : "<=",
-                "max" : 24
+                "min" : 0
               }
             }
           }, {
@@ -1822,7 +1466,23 @@
                 "min" : 0
               }
             }
-          } ]
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "math_function",
+          "name" : "Math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.body_temperature.v2]/data[at0002]/events[at0003]/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
         }, {
           "id" : "time",
           "name" : "Time",
@@ -1919,7 +1579,21 @@
           },
           "aqlPath" : "/content[openEHR-EHR-OBSERVATION.faecal_output.v0]/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value",
           "inputs" : [ {
-            "type" : "TEXT"
+            "type" : "TEXT",
+            "list" : [ {
+              "value" : "Ausente",
+              "label" : "Ausente"
+            }, {
+              "value" : "Normal",
+              "label" : "Normal"
+            }, {
+              "value" : "Diarréia",
+              "label" : "Diarréia"
+            }, {
+              "value" : "Melena",
+              "label" : "Melena"
+            } ],
+            "listOpen" : false
           } ]
         }, {
           "id" : "width",
@@ -2059,25 +1733,25 @@
         "inContext" : true
       } ]
     }, {
-      "id" : "glicemia",
-      "name" : "Glicemia",
-      "localizedName" : "Glicemia",
+      "id" : "laboratory_test_result",
+      "name" : "Laboratory test result",
+      "localizedName" : "Laboratory test result",
       "rmType" : "OBSERVATION",
       "nodeId" : "openEHR-EHR-OBSERVATION.laboratory_test_result.v1",
       "min" : 0,
       "max" : 1,
       "localizedNames" : {
-        "en" : "Glicemia"
+        "en" : "Laboratory test result"
       },
       "localizedDescriptions" : {
         "en" : "The result, including findings and the laboratory's interpretation, of an investigation performed on specimens collected from an individual or related to that individual."
       },
-      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']",
+      "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]",
       "children" : [ {
         "id" : "any_event",
         "name" : "Any event",
         "localizedName" : "Any event",
-        "rmType" : "EVENT",
+        "rmType" : "INTERVAL_EVENT",
         "nodeId" : "at0002",
         "min" : 0,
         "max" : -1,
@@ -2087,7 +1761,7 @@
         "localizedDescriptions" : {
           "en" : "Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time."
         },
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]",
         "children" : [ {
           "id" : "test_name",
           "name" : "Test name",
@@ -2105,10 +1779,75 @@
           "annotations" : {
             "comment" : "A test result may be for a single analyte, or a group of items, including panel tests. It is strongly recommended that 'Test name' be coded with a terminology, for example LOINC or SNOMED CT. For example: 'Glucose', 'Urea and Electrolytes', 'Swab', 'Cortisol (am)', 'Potassium in perspiration' or 'Melanoma histopathology'. The name may sometimes include specimen type and patient state, for example 'Fasting blood glucose' or include other information, as 'Potassium (PNA blood gas)'."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0005]/value",
           "inputs" : [ {
-            "type" : "TEXT",
-            "defaultValue" : "Glicemia"
+            "type" : "TEXT"
+          } ]
+        }, {
+          "id" : "laboratory_analyte_result",
+          "name" : "Laboratory analyte result",
+          "localizedName" : "Laboratory analyte result",
+          "rmType" : "CLUSTER",
+          "nodeId" : "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1",
+          "min" : 0,
+          "max" : -1,
+          "localizedNames" : {
+            "en" : "Laboratory analyte result"
+          },
+          "localizedDescriptions" : {
+            "en" : "The result of a laboratory test for a single analyte value."
+          },
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]",
+          "children" : [ {
+            "id" : "analyte_name",
+            "name" : "Analyte name",
+            "localizedName" : "Analyte name",
+            "rmType" : "DV_TEXT",
+            "nodeId" : "at0024",
+            "min" : 0,
+            "max" : 1,
+            "localizedNames" : {
+              "en" : "Analyte name"
+            },
+            "localizedDescriptions" : {
+              "en" : "The name of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "The value for this element is normally supplied in a specialisation, in a template or at run-time to reflect the actual analyte. For example: 'Serum sodium', 'Haemoglobin'. Coding with an external terminology is strongly recommended, such as LOINC, NPU, SNOMED CT, or local lab terminologies.",
+              "hl7v2_mapping" : "OBX.3",
+              "fhir_mapping" : "Observation.code"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0024]/value",
+            "inputs" : [ {
+              "type" : "TEXT"
+            } ]
+          }, {
+            "id" : "analyte_result",
+            "name" : "Analyte result",
+            "localizedName" : "Analyte result",
+            "rmType" : "DV_QUANTITY",
+            "nodeId" : "at0001",
+            "min" : 0,
+            "max" : -1,
+            "localizedNames" : {
+              "en" : "Analyte result"
+            },
+            "localizedDescriptions" : {
+              "en" : "The value of the analyte result."
+            },
+            "annotations" : {
+              "comment" : "For example '7.3 mmol/l', 'Raised'. The 'Any' data type will need to be constrained to an appropriate data type in a specialisation, a template or at run-time to reflect the actual analyte result. The Quantity data type has reference model attributes that include flags for normal/abnormal, reference ranges and approximations - see https://specifications.openehr.org/releases/RM/latest/data_types.html#_dv_quantity_class for more details.",
+              "hl7v2_mapping" : "OBX.2, OBX.5, OBX.6, OBX.7, OBX.8",
+              "fhir_mapping" : "Observation.value[x]"
+            },
+            "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]/items[at0001]/value",
+            "inputs" : [ {
+              "suffix" : "magnitude",
+              "type" : "DECIMAL"
+            }, {
+              "suffix" : "unit",
+              "type" : "CODED_TEXT"
+            } ]
           } ]
         }, {
           "id" : "conclusion",
@@ -2127,17 +1866,104 @@
           "annotations" : {
             "comment" : "For example: 'Pattern suggests significant renal impairment'. The content of the conclusion will vary, depending on the investigation performed. This conclusion should be aligned with the coded 'Test diagnosis'."
           },
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]/data[at0003]/items[at0057]/value",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0057]/value",
           "inputs" : [ {
             "type" : "TEXT"
           } ]
+        }, {
+          "id" : "width",
+          "name" : "Width",
+          "rmType" : "DV_DURATION",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/width",
+          "inputs" : [ {
+            "suffix" : "year",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "month",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "day",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "week",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "hour",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "minute",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          }, {
+            "suffix" : "second",
+            "type" : "INTEGER",
+            "validation" : {
+              "range" : {
+                "minOp" : ">=",
+                "min" : 0
+              }
+            }
+          } ],
+          "inContext" : true
+        }, {
+          "id" : "math_function",
+          "name" : "Math_function",
+          "rmType" : "DV_CODED_TEXT",
+          "min" : 1,
+          "max" : 1,
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/math_function",
+          "inputs" : [ {
+            "suffix" : "code",
+            "type" : "TEXT"
+          }, {
+            "suffix" : "value",
+            "type" : "TEXT"
+          } ],
+          "inContext" : true
         }, {
           "id" : "time",
           "name" : "Time",
           "rmType" : "DV_DATE_TIME",
           "min" : 1,
           "max" : 1,
-          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/data[at0001]/events[at0002]/time",
+          "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/data[at0001]/events[at0002]/time",
           "inputs" : [ {
             "type" : "DATETIME"
           } ],
@@ -2149,7 +1975,7 @@
         "rmType" : "CODE_PHRASE",
         "min" : 1,
         "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/language",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/language",
         "inContext" : true
       }, {
         "id" : "encoding",
@@ -2157,7 +1983,7 @@
         "rmType" : "CODE_PHRASE",
         "min" : 1,
         "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/encoding",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/encoding",
         "inContext" : true
       }, {
         "id" : "subject",
@@ -2165,7 +1991,7 @@
         "rmType" : "PARTY_PROXY",
         "min" : 1,
         "max" : 1,
-        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1,'Glicemia']/subject",
+        "aqlPath" : "/content[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]/subject",
         "inputs" : [ {
           "suffix" : "id",
           "type" : "TEXT"
